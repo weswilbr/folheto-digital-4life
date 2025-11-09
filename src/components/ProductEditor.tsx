@@ -142,6 +142,22 @@ export const ProductEditor: React.FC<ProductEditorProps> = ({ products, onProduc
 
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">
+              Link do Produto (para QR Code)
+            </label>
+            <input
+              type="url"
+              value={product.link || ''}
+              onChange={(e) => updateProduct(product.id, { link: e.target.value })}
+              placeholder="Ex: https://loja.com/seu-link-personalizado"
+              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+            <p className="text-xs text-slate-500 mt-1">
+              🔗 Cole seu link personalizado. Um QR Code será gerado automaticamente no folheto!
+            </p>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-2">
               Descrição
             </label>
             <textarea

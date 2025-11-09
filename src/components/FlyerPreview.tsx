@@ -1,6 +1,7 @@
 import React from 'react';
 import type { FlyerData } from '../types';
 import { Phone, Mail, Globe, MapPin, Check, Star } from 'lucide-react';
+import { QRCodeSVG } from 'qrcode.react';
 
 interface FlyerPreviewProps {
   flyerData: FlyerData;
@@ -81,7 +82,7 @@ const ModernTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
                   )}
 
                   {product.benefits && product.benefits.length > 0 && (
-                    <div className="space-y-1">
+                    <div className="space-y-1 mb-3">
                       {product.benefits.slice(0, 3).map((benefit, index) => (
                         benefit && (
                           <div key={index} className="flex items-start gap-1">
@@ -90,6 +91,20 @@ const ModernTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
                           </div>
                         )
                       ))}
+                    </div>
+                  )}
+
+                  {product.link && (
+                    <div className="mt-3 pt-3 border-t border-slate-200 flex items-center justify-center">
+                      <div className="text-center">
+                        <QRCodeSVG
+                          value={product.link}
+                          size={80}
+                          level="M"
+                          includeMargin={false}
+                        />
+                        <p className="text-xs text-slate-500 mt-1 font-medium">Escaneie para comprar</p>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -181,28 +196,42 @@ const ClassicTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
                   </div>
                 )}
 
-                <div className="flex-1">
-                  <div className="flex items-start justify-between mb-2">
-                    <h3 className="text-2xl font-bold" style={{ color: colors.primary }}>{product.name}</h3>
-                    {product.price && (
-                      <span className="text-3xl font-bold" style={{ color: colors.secondary }}>{product.price}</span>
+                <div className="flex-1 flex gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between mb-2">
+                      <h3 className="text-2xl font-bold" style={{ color: colors.primary }}>{product.name}</h3>
+                      {product.price && (
+                        <span className="text-3xl font-bold" style={{ color: colors.secondary }}>{product.price}</span>
+                      )}
+                    </div>
+
+                    {product.description && (
+                      <p className="text-sm text-slate-700 mb-3">{product.description}</p>
+                    )}
+
+                    {product.benefits && product.benefits.length > 0 && (
+                      <div className="grid grid-cols-2 gap-2">
+                        {product.benefits.slice(0, 4).map((benefit, idx) => (
+                          benefit && (
+                            <div key={idx} className="flex items-start gap-2">
+                              <Star size={14} className="mt-0.5 flex-shrink-0 fill-current" style={{ color: colors.secondary }} />
+                              <span className="text-xs text-slate-700">{benefit}</span>
+                            </div>
+                          )
+                        ))}
+                      </div>
                     )}
                   </div>
 
-                  {product.description && (
-                    <p className="text-sm text-slate-700 mb-3">{product.description}</p>
-                  )}
-
-                  {product.benefits && product.benefits.length > 0 && (
-                    <div className="grid grid-cols-2 gap-2">
-                      {product.benefits.slice(0, 4).map((benefit, idx) => (
-                        benefit && (
-                          <div key={idx} className="flex items-start gap-2">
-                            <Star size={14} className="mt-0.5 flex-shrink-0 fill-current" style={{ color: colors.secondary }} />
-                            <span className="text-xs text-slate-700">{benefit}</span>
-                          </div>
-                        )
-                      ))}
+                  {product.link && (
+                    <div className="flex flex-col items-center justify-center px-4 border-l border-slate-200">
+                      <QRCodeSVG
+                        value={product.link}
+                        size={90}
+                        level="M"
+                        includeMargin={false}
+                      />
+                      <p className="text-xs text-slate-600 mt-2 font-medium text-center">Escaneie para comprar</p>
                     </div>
                   )}
                 </div>
@@ -285,7 +314,21 @@ const MinimalTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
                 )}
 
                 {product.description && (
-                  <p className="text-xs text-slate-600 line-clamp-2">{product.description}</p>
+                  <p className="text-xs text-slate-600 line-clamp-2 mb-3">{product.description}</p>
+                )}
+
+                {product.link && (
+                  <div className="mt-3 pt-3 border-t border-slate-100 flex justify-center">
+                    <div className="text-center">
+                      <QRCodeSVG
+                        value={product.link}
+                        size={70}
+                        level="M"
+                        includeMargin={false}
+                      />
+                      <p className="text-xs text-slate-500 mt-2">Escaneie aqui</p>
+                    </div>
+                  </div>
                 )}
               </div>
             ))}
@@ -379,7 +422,7 @@ const VibrantTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
                   )}
 
                   {product.benefits && product.benefits.length > 0 && (
-                    <div className="space-y-1">
+                    <div className="space-y-1 mb-3">
                       {product.benefits.slice(0, 2).map((benefit, index) => (
                         benefit && (
                           <div key={index} className="flex items-start gap-2">
@@ -388,6 +431,23 @@ const VibrantTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
                           </div>
                         )
                       ))}
+                    </div>
+                  )}
+
+                  {product.link && (
+                    <div className="mt-4 pt-4 border-t-2 border-dashed" style={{ borderColor: colors.secondary }}>
+                      <div className="flex items-center justify-center gap-3">
+                        <QRCodeSVG
+                          value={product.link}
+                          size={80}
+                          level="M"
+                          includeMargin={false}
+                        />
+                        <div className="text-center">
+                          <p className="text-sm font-bold" style={{ color: colors.primary }}>COMPRE AGORA!</p>
+                          <p className="text-xs text-slate-600">Escaneie o QR Code</p>
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>

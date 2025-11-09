@@ -6,6 +6,7 @@ export interface Product {
   image?: string;
   benefits?: string[];
   category?: string;
+  link?: string;
 }
 
 export interface FlyerData {
