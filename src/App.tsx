@@ -3,10 +3,12 @@ import type { FlyerData } from './types';
 import { ProductEditor } from './components/ProductEditor';
 import { CompanyEditor } from './components/CompanyEditor';
 import { StyleEditor } from './components/StyleEditor';
+import { TemplateSelector } from './components/TemplateSelector';
 import { FlyerPreview } from './components/FlyerPreview';
 import { Download, Save, FileText, Eye, Settings, Palette } from 'lucide-react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { initialProducts } from './initialData';
 
 const STORAGE_KEY = 'folheto-digital-data';
 
@@ -27,17 +29,18 @@ function App() {
 
     return {
       id: 'flyer-1',
-      title: 'Catálogo de Produtos',
-      subtitle: 'Transformando vidas através da saúde',
+      title: 'Catálogo de Produtos 4Life',
+      subtitle: 'Transformando vidas através da saúde e bem-estar',
       company: {
         name: '4Life Brasil',
         contact: {
-          phone: '(11) 9999-9999',
+          phone: '(11) 3456-7890',
           email: 'contato@4life.com.br',
           website: 'www.4life.com.br',
+          address: 'São Paulo, SP - Brasil',
         },
       },
-      products: [],
+      products: initialProducts,
       colors: {
         primary: '#8B1538',
         secondary: '#FFD700',
@@ -251,7 +254,10 @@ function App() {
                 />
               )}
               {activeTab === 'style' && (
-                <StyleEditor flyerData={flyerData} onUpdate={updateFlyerData} />
+                <div className="space-y-6">
+                  <TemplateSelector flyerData={flyerData} onUpdate={updateFlyerData} />
+                  <StyleEditor flyerData={flyerData} onUpdate={updateFlyerData} />
+                </div>
               )}
             </div>
           </div>
