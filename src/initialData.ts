@@ -135,14 +135,14 @@ export const initialProducts: Product[] = [
   },
   {
     id: 'product-12',
-    name: 'RiteStart Men',
-    description: 'Multivitamínico completo para homens. RiteStart: energia, vitalidade e saúde masculina otimizada todos os dias.',
-    price: 'R$ 219,90',
+    name: 'Transfer Factor Plus 30 caps',
+    description: 'Fortaleça sua defesa diariamente. Transfer Factor Plus: tecnologia comprovada que educa seu sistema imunológico naturalmente.',
+    price: 'R$ 189,90',
     benefits: [
-      'Fórmula completa para homens',
-      'Energia e vitalidade diária',
-      'Suporte imunológico e hormonal'
+      'Reforça o sistema imunológico naturalmente',
+      'Educa as células de defesa para melhor resposta',
+      'Proteção contínua contra desafios do dia a dia'
     ],
-    category: 'Nutrição'
+    category: 'Imunidade'
   }
 ];

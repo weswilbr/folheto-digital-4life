@@ -81,7 +81,7 @@ const ModernTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
 
                   {product.benefits && product.benefits.length > 0 && (
                     <div className="space-y-0.5 mb-2">
-                      {product.benefits.slice(0, 2).map((benefit, index) => (
+                      {product.benefits.slice(0, 3).map((benefit, index) => (
                         benefit && (
                           <div key={index} className="flex items-start gap-1">
                             <Check size={10} className="mt-0.5 flex-shrink-0" style={{ color: colors.secondary }} />
@@ -204,7 +204,7 @@ const ClassicTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
 
                   {product.benefits && product.benefits.length > 0 && (
                     <div className="space-y-1 mb-2">
-                      {product.benefits.slice(0, 2).map((benefit, idx) => (
+                      {product.benefits.slice(0, 3).map((benefit, idx) => (
                         benefit && (
                           <div key={idx} className="flex items-start gap-1">
                             <Star size={10} className="mt-0.5 flex-shrink-0 fill-current" style={{ color: colors.secondary }} />
@@ -307,6 +307,19 @@ const MinimalTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
                 </h3>
                 {product.price && (
                   <p className="text-sm font-bold mb-1" style={{ color: colors.primary }}>{product.price}</p>
+                )}
+
+                {product.benefits && product.benefits.length > 0 && (
+                  <div className="space-y-0.5 mb-2">
+                    {product.benefits.slice(0, 3).map((benefit, index) => (
+                      benefit && (
+                        <div key={index} className="flex items-start gap-1">
+                          <Check size={8} className="mt-0.5 flex-shrink-0" style={{ color: colors.primary }} />
+                          <span className="text-xs text-slate-600 line-clamp-1" style={{ fontSize: '0.65rem' }}>{benefit}</span>
+                        </div>
+                      )
+                    ))}
+                  </div>
                 )}
 
                 {product.link && (
@@ -412,6 +425,19 @@ const VibrantTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
                     <p className="text-lg font-black mb-2" style={{ color: colors.secondary }}>
                       {product.price}
                     </p>
+                  )}
+
+                  {product.benefits && product.benefits.length > 0 && (
+                    <div className="space-y-0.5 mb-2">
+                      {product.benefits.slice(0, 3).map((benefit, index) => (
+                        benefit && (
+                          <div key={index} className="flex items-start gap-1">
+                            <Check size={10} className="mt-0.5 flex-shrink-0" style={{ color: colors.primary }} />
+                            <span className="text-xs text-slate-700 line-clamp-1">{benefit}</span>
+                          </div>
+                        )
+                      ))}
+                    </div>
                   )}
 
                   {product.link && (
