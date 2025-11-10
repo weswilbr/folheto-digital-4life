@@ -79,43 +79,12 @@ function App() {
         return;
       }
 
-      // Captura o elemento como imagem com configurações que ignoram cores modernas
+      // Captura o elemento como imagem
       const canvas = await html2canvas(element, {
         scale: 2,
         useCORS: true,
-        allowTaint: true,
         logging: false,
         backgroundColor: '#ffffff',
-        foreignObjectRendering: false,
-        // Ignora elementos problemáticos
-        ignoreElements: () => {
-          return false;
-        },
-        onclone: (clonedDoc) => {
-          // Converte todas as cores problemáticas no documento clonado
-          const clonedElement = clonedDoc.getElementById('flyer-preview');
-          if (clonedElement) {
-            const allElements = clonedElement.querySelectorAll('*');
-            allElements.forEach((el) => {
-              const htmlEl = el as HTMLElement;
-              const styles = htmlEl.style;
-
-              // Remove propriedades que causam problemas
-              if (styles.color) {
-                const color = styles.color;
-                if (color.includes('oklch') || color.includes('color(')) {
-                  styles.color = '#000000';
-                }
-              }
-              if (styles.backgroundColor) {
-                const bgColor = styles.backgroundColor;
-                if (bgColor.includes('oklch') || bgColor.includes('color(')) {
-                  styles.backgroundColor = '#ffffff';
-                }
-              }
-            });
-          }
-        }
       });
 
       // Cria o PDF
