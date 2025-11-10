@@ -69,23 +69,25 @@ const ModernTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
                   </div>
                 )}
 
-                <div className="p-2">
-                  <h3 className="text-sm font-bold text-slate-800 mb-1 line-clamp-2" style={{ minHeight: '2.5rem' }}>
+                <div className="p-1.5">
+                  <h3 className="text-xs font-bold text-slate-800 mb-0.5 line-clamp-2" style={{ minHeight: '2rem', fontSize: '0.7rem' }}>
                     {product.name}
                   </h3>
                   {product.price && (
-                    <p className="text-lg font-bold mb-1" style={{ color: colors.primary }}>
+                    <p className="text-sm font-bold mb-0.5" style={{ color: colors.primary }}>
                       {product.price}
                     </p>
                   )}
 
                   {product.benefits && product.benefits.length > 0 && (
-                    <div className="space-y-0.5 mb-2">
+                    <div className="space-y-0.5 mb-1.5">
                       {product.benefits.slice(0, 3).map((benefit, index) => (
                         benefit && (
-                          <div key={index} className="flex items-start gap-1">
-                            <Check size={10} className="mt-0.5 flex-shrink-0" style={{ color: colors.secondary }} />
-                            <span className="text-xs text-slate-700 line-clamp-1">{benefit}</span>
+                          <div key={index} className="flex items-start gap-0.5">
+                            <Check size={8} className="mt-0.5 flex-shrink-0" style={{ color: colors.secondary }} />
+                            <span className="text-slate-600 line-clamp-1" style={{ fontSize: '0.6rem', lineHeight: '1.2' }}>
+                              {benefit}
+                            </span>
                           </div>
                         )
                       ))}
@@ -93,15 +95,15 @@ const ModernTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
                   )}
 
                   {product.link && (
-                    <div className="mt-2 pt-2 border-t border-slate-200 flex items-center justify-center">
+                    <div className="mt-1.5 pt-1.5 border-t border-slate-200 flex items-center justify-center">
                       <div className="text-center">
                         <QRCodeSVG
                           value={product.link}
-                          size={50}
+                          size={40}
                           level="M"
                           includeMargin={false}
                         />
-                        <p className="text-xs text-slate-500 mt-1">Escaneie</p>
+                        <p className="text-slate-500 mt-0.5" style={{ fontSize: '0.55rem' }}>Escaneie</p>
                       </div>
                     </div>
                   )}
@@ -185,30 +187,30 @@ const ClassicTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
             {products.map((product, index) => (
               <div
                 key={product.id}
-                className="p-2 rounded-lg border-l-4"
+                className="p-1.5 rounded-lg border-l-4"
                 style={{ borderColor: colors.secondary, backgroundColor: index % 2 === 0 ? '#f8fafc' : 'white' }}
               >
                 {product.image && (
-                  <div className="aspect-square bg-slate-100 rounded overflow-hidden mb-2">
+                  <div className="aspect-square bg-slate-100 rounded overflow-hidden mb-1.5">
                     <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
                   </div>
                 )}
 
                 <div>
-                  <h3 className="text-sm font-bold mb-1 line-clamp-2" style={{ color: colors.primary, minHeight: '2.5rem' }}>
+                  <h3 className="font-bold mb-0.5 line-clamp-2" style={{ color: colors.primary, minHeight: '2rem', fontSize: '0.7rem' }}>
                     {product.name}
                   </h3>
                   {product.price && (
-                    <p className="text-lg font-bold mb-2" style={{ color: colors.secondary }}>{product.price}</p>
+                    <p className="text-sm font-bold mb-1" style={{ color: colors.secondary }}>{product.price}</p>
                   )}
 
                   {product.benefits && product.benefits.length > 0 && (
-                    <div className="space-y-1 mb-2">
+                    <div className="space-y-0.5 mb-1.5">
                       {product.benefits.slice(0, 3).map((benefit, idx) => (
                         benefit && (
-                          <div key={idx} className="flex items-start gap-1">
-                            <Star size={10} className="mt-0.5 flex-shrink-0 fill-current" style={{ color: colors.secondary }} />
-                            <span className="text-xs text-slate-700 line-clamp-1">{benefit}</span>
+                          <div key={idx} className="flex items-start gap-0.5">
+                            <Star size={8} className="mt-0.5 flex-shrink-0 fill-current" style={{ color: colors.secondary }} />
+                            <span className="text-slate-600 line-clamp-1" style={{ fontSize: '0.6rem', lineHeight: '1.2' }}>{benefit}</span>
                           </div>
                         )
                       ))}
@@ -216,15 +218,15 @@ const ClassicTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
                   )}
 
                   {product.link && (
-                    <div className="mt-2 pt-2 border-t border-slate-200 flex justify-center">
+                    <div className="mt-1.5 pt-1.5 border-t border-slate-200 flex justify-center">
                       <div className="text-center">
                         <QRCodeSVG
                           value={product.link}
-                          size={50}
+                          size={40}
                           level="M"
                           includeMargin={false}
                         />
-                        <p className="text-xs text-slate-600 mt-1">Escaneie</p>
+                        <p className="text-slate-600 mt-0.5" style={{ fontSize: '0.55rem' }}>Escaneie</p>
                       </div>
                     </div>
                   )}
@@ -297,25 +299,25 @@ const MinimalTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
             {products.map((product) => (
               <div key={product.id} className="group">
                 {product.image && (
-                  <div className="aspect-square bg-slate-50 mb-2 overflow-hidden rounded">
+                  <div className="aspect-square bg-slate-50 mb-1.5 overflow-hidden rounded">
                     <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
                   </div>
                 )}
 
-                <h3 className="text-xs font-semibold text-slate-900 mb-1 line-clamp-2" style={{ minHeight: '2rem' }}>
+                <h3 className="font-semibold text-slate-900 mb-0.5 line-clamp-2" style={{ minHeight: '1.8rem', fontSize: '0.65rem' }}>
                   {product.name}
                 </h3>
                 {product.price && (
-                  <p className="text-sm font-bold mb-1" style={{ color: colors.primary }}>{product.price}</p>
+                  <p className="font-bold mb-0.5" style={{ color: colors.primary, fontSize: '0.75rem' }}>{product.price}</p>
                 )}
 
                 {product.benefits && product.benefits.length > 0 && (
-                  <div className="space-y-0.5 mb-2">
+                  <div className="space-y-0.5 mb-1.5">
                     {product.benefits.slice(0, 3).map((benefit, index) => (
                       benefit && (
-                        <div key={index} className="flex items-start gap-1">
-                          <Check size={8} className="mt-0.5 flex-shrink-0" style={{ color: colors.primary }} />
-                          <span className="text-xs text-slate-600 line-clamp-1" style={{ fontSize: '0.65rem' }}>{benefit}</span>
+                        <div key={index} className="flex items-start gap-0.5">
+                          <Check size={7} className="mt-0.5 flex-shrink-0" style={{ color: colors.primary }} />
+                          <span className="text-slate-600 line-clamp-1" style={{ fontSize: '0.58rem', lineHeight: '1.1' }}>{benefit}</span>
                         </div>
                       )
                     ))}
@@ -323,15 +325,15 @@ const MinimalTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
                 )}
 
                 {product.link && (
-                  <div className="mt-2 pt-2 border-t border-slate-100 flex justify-center">
+                  <div className="mt-1.5 pt-1.5 border-t border-slate-100 flex justify-center">
                     <div className="text-center">
                       <QRCodeSVG
                         value={product.link}
-                        size={45}
+                        size={35}
                         level="M"
                         includeMargin={false}
                       />
-                      <p className="text-xs text-slate-500 mt-1">Escaneie</p>
+                      <p className="text-slate-500 mt-0.5" style={{ fontSize: '0.55rem' }}>Escaneie</p>
                     </div>
                   </div>
                 )}
@@ -409,31 +411,31 @@ const VibrantTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
                   </div>
                 )}
 
-                <div className="p-2">
+                <div className="p-1.5">
                   <div
-                    className="inline-block px-2 py-0.5 rounded-full text-white text-xs font-bold mb-2"
-                    style={{ backgroundColor: colors.primary }}
+                    className="inline-block px-1.5 py-0.5 rounded-full text-white font-bold mb-1"
+                    style={{ backgroundColor: colors.primary, fontSize: '0.6rem' }}
                   >
                     {product.category || 'Produto'}
                   </div>
 
-                  <h3 className="text-sm font-black text-slate-900 mb-1 line-clamp-2" style={{ minHeight: '2.5rem' }}>
+                  <h3 className="font-black text-slate-900 mb-0.5 line-clamp-2" style={{ minHeight: '2rem', fontSize: '0.7rem' }}>
                     {product.name}
                   </h3>
 
                   {product.price && (
-                    <p className="text-lg font-black mb-2" style={{ color: colors.secondary }}>
+                    <p className="text-sm font-black mb-1" style={{ color: colors.secondary }}>
                       {product.price}
                     </p>
                   )}
 
                   {product.benefits && product.benefits.length > 0 && (
-                    <div className="space-y-0.5 mb-2">
+                    <div className="space-y-0.5 mb-1.5">
                       {product.benefits.slice(0, 3).map((benefit, index) => (
                         benefit && (
-                          <div key={index} className="flex items-start gap-1">
-                            <Check size={10} className="mt-0.5 flex-shrink-0" style={{ color: colors.primary }} />
-                            <span className="text-xs text-slate-700 line-clamp-1">{benefit}</span>
+                          <div key={index} className="flex items-start gap-0.5">
+                            <Check size={8} className="mt-0.5 flex-shrink-0" style={{ color: colors.primary }} />
+                            <span className="text-slate-700 line-clamp-1" style={{ fontSize: '0.6rem', lineHeight: '1.2' }}>{benefit}</span>
                           </div>
                         )
                       ))}
@@ -441,16 +443,16 @@ const VibrantTemplate: React.FC<{ flyerData: FlyerData }> = ({ flyerData }) => {
                   )}
 
                   {product.link && (
-                    <div className="mt-2 pt-2 border-t-2 border-dashed" style={{ borderColor: colors.secondary }}>
+                    <div className="mt-1.5 pt-1.5 border-t-2 border-dashed" style={{ borderColor: colors.secondary }}>
                       <div className="flex items-center justify-center">
                         <QRCodeSVG
                           value={product.link}
-                          size={50}
+                          size={40}
                           level="M"
                           includeMargin={false}
                         />
                       </div>
-                      <p className="text-xs text-center font-bold mt-1" style={{ color: colors.primary }}>COMPRE!</p>
+                      <p className="text-center font-bold mt-0.5" style={{ color: colors.primary, fontSize: '0.6rem' }}>COMPRE!</p>
                     </div>
                   )}
                 </div>
